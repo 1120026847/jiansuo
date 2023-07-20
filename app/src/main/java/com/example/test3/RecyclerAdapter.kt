@@ -1,11 +1,14 @@
 package com.example.test3
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapter(var mList: List<textData>) :
@@ -17,17 +20,19 @@ class RecyclerAdapter(var mList: List<textData>) :
 
         init {
             titleTv = itemView.findViewById(R.id.titleTv)
+//            var Intent=Intent(this@RecyclerAdapter,AbnormalUltrasoundWind::class.java)
+            val AbnormalUltrasoundWindIntent=Intent(MyApplication.context,AbnormalUltrasoundWind::class.java)
+            val TemperatureAnomalyIntent=Intent(MyApplication.context,TemperatureAnomaly::class.java)
+            val AbnormalHumidityIntent=Intent(MyApplication.context,AbnormalHumidity::class.java)
             titleTv.setOnClickListener {
                 val position: Int = adapterPosition
                 when (position) {
-                    0 -> Toast.makeText(titleTv.context, "第一个位置", Toast.LENGTH_SHORT).show()
-                    1 -> Toast.makeText(titleTv.context, "第二个位置", Toast.LENGTH_SHORT).show()
-                    2 -> Toast.makeText(titleTv.context, "第三个位置", Toast.LENGTH_SHORT).show()
+                    //MyApplication.context,AbnormalUltrasoundWindIntent
+                    0 -> startActivity(MyApplication.context,AbnormalUltrasoundWindIntent,null)
+                    1 -> startActivity(MyApplication.context,TemperatureAnomalyIntent,null)
+                    2 -> startActivity(MyApplication.context,AbnormalHumidityIntent,null)
                     3 -> Toast.makeText(titleTv.context, "第四个位置", Toast.LENGTH_SHORT).show()
                     4 -> Toast.makeText(titleTv.context, "第五个位置", Toast.LENGTH_SHORT).show()
-                    5 -> Toast.makeText(titleTv.context, "第六个位置", Toast.LENGTH_SHORT).show()
-                    6 -> Toast.makeText(titleTv.context, "第七个位置", Toast.LENGTH_SHORT).show()
-                    7 -> Toast.makeText(titleTv.context, "第八个位置", Toast.LENGTH_SHORT).show()
                 }
             }
             //todo 关于Android Activity之间传递数据的6种方式 https://blog.csdn.net/u012602304/article/details/87882749

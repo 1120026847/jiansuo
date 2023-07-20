@@ -62,13 +62,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addDataToList() {
-        mList.add(textData("Java"))
-        mList.add(textData("Kotlin"))
-        mList.add(textData("C++"))
-        mList.add(textData("Python"))
-        mList.add(textData("HTML"))
-        mList.add(textData("Swift"))
-        mList.add(textData("C#"))
-        mList.add(textData("JavaScript"))
+        mList.add(textData("超声风异常"))
+        mList.add(textData("气温异常"))
+        mList.add(textData("湿度异常"))
+        mList.add(textData("气压异常"))
+        mList.add(textData("能见度异常"))
     }
 }
