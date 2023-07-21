@@ -4,14 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.test3.databinding.ActivityAbnormalHumidityBinding
 
 class AbnormalHumidity : AppCompatActivity() {
-    private lateinit var tv_AbnormalHumidity: TextView
+    private lateinit var binding:ActivityAbnormalHumidityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_abnormal_humidity)
-        tv_AbnormalHumidity = findViewById(R.id.tv_AbnormalHumidity)
-        tv_AbnormalHumidity.setOnClickListener {
+        binding= ActivityAbnormalHumidityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.tvAbnormalHumidity.setOnClickListener {
             val intent= Intent(this,AbnormalHumidityReason::class.java)
             startActivity(intent)
         }

@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.test3.databinding.ActivityTemperatureAnomalyBinding
 
 class TemperatureAnomaly : AppCompatActivity() {
+    private lateinit var binding:ActivityTemperatureAnomalyBinding
     private lateinit var tv_temperatureAnomaly: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_temperature_anomaly)
-tv_temperatureAnomaly=findViewById(R.id.tv_temperatureAnomaly)
-        tv_temperatureAnomaly.setOnClickListener {
+        binding= ActivityTemperatureAnomalyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.tvTemperatureAnomaly.setOnClickListener {
             val intent= Intent(this,temperatureAnomalyReason::class.java)
             startActivity(intent)
         }

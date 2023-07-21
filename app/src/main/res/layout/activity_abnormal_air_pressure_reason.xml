@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".temperatureAnomalyReason">
+    tools:context=".AbnormalAirPressureReason">
     <TextView
         android:id="@+id/tv_PoorOrInterruptedCableContact"
         android:layout_width="match_parent"
@@ -16,10 +16,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/SensorAgingOrDamage"
+        android:id="@+id/tv_SensorHasNoWorkingVoltage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
+        android:gravity="center"
+        android:text="传感器无工作电压"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_SensorAgingOrDamage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
         android:gravity="center"
         android:text="传感器老化或损坏"
         app:layout_constraintEnd_toEndOf="parent"

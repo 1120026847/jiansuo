@@ -5,20 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.test3.databinding.ActivityAbnormalAirPressureBinding
+import com.example.test3.databinding.ActivityAbnormalUltrasoundWindBinding
 
 class AbnormalUltrasoundWind : AppCompatActivity() {
-    private lateinit var tv_noData: TextView
-    private lateinit var tv_errorData: TextView
+    private lateinit var binding:ActivityAbnormalUltrasoundWindBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_abnormal_ultrasound_wind)
-        tv_errorData = findViewById(R.id.tv_errorData)
-        tv_errorData = findViewById(R.id.tv_noData)
-        tv_errorData.setOnClickListener {
+        binding= ActivityAbnormalUltrasoundWindBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.tvErrorData.setOnClickListener {
             val intent=Intent(this,WindError_ErrorDataReason::class.java)
             startActivity(intent)
         }
-        tv_noData.setOnClickListener {
+        binding.tvNoData.setOnClickListener {
             val intent=Intent(this,WindError_NODataReason::class.java)
             startActivity(intent)
         }

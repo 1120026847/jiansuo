@@ -20,19 +20,26 @@ class RecyclerAdapter(var mList: List<textData>) :
 
         init {
             titleTv = itemView.findViewById(R.id.titleTv)
-//            var Intent=Intent(this@RecyclerAdapter,AbnormalUltrasoundWind::class.java)
+//
             val AbnormalUltrasoundWindIntent=Intent(MyApplication.context,AbnormalUltrasoundWind::class.java)
             val TemperatureAnomalyIntent=Intent(MyApplication.context,TemperatureAnomaly::class.java)
             val AbnormalHumidityIntent=Intent(MyApplication.context,AbnormalHumidity::class.java)
+            val AbnormalAirPressureIntent=Intent(MyApplication.context,AbnormalAirPressure::class.java)
+            val AbnormalVisibilityIntent=Intent(MyApplication.context,AbnormalVisibility::class.java)
+
+            AbnormalUltrasoundWindIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
+            TemperatureAnomalyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
+            AbnormalHumidityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
+            AbnormalAirPressureIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
+            AbnormalVisibilityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
             titleTv.setOnClickListener {
                 val position: Int = adapterPosition
                 when (position) {
-                    //MyApplication.context,AbnormalUltrasoundWindIntent
                     0 -> startActivity(MyApplication.context,AbnormalUltrasoundWindIntent,null)
                     1 -> startActivity(MyApplication.context,TemperatureAnomalyIntent,null)
                     2 -> startActivity(MyApplication.context,AbnormalHumidityIntent,null)
-                    3 -> Toast.makeText(titleTv.context, "第四个位置", Toast.LENGTH_SHORT).show()
-                    4 -> Toast.makeText(titleTv.context, "第五个位置", Toast.LENGTH_SHORT).show()
+                   3 -> startActivity(MyApplication.context,AbnormalAirPressureIntent,null)
+                    4 -> startActivity(MyApplication.context,AbnormalVisibilityIntent,null)
                 }
             }
             //todo 关于Android Activity之间传递数据的6种方式 https://blog.csdn.net/u012602304/article/details/87882749
